@@ -15,6 +15,8 @@ public class Lab4P1_DenisZepeda {
     /**
      * @param args the command line arguments
      */
+    
+    //saben como hacer que un pan hable?, lo meten al agua y al dia siguiente ya esta-blando
     public static void main(String[] args) {
        
         Scanner entry = new Scanner (System.in);
