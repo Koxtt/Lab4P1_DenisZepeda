@@ -19,8 +19,8 @@ public class Lab4P1_DenisZepeda {
        
         Scanner entry = new Scanner (System.in);
         System.out.println("-----MENU-----");
-        System.out.println("1) ");
-        System.out.println("2) ");
+        System.out.println("1) Analizador de constrasenas");
+        System.out.println("2) Cascada y simetria");
         System.out.println("3) Cifrado Cesar");
         System.out.println("4) Salir");
         System.out.println("Ingrese una Opcion dentro del rango[1-4]");
@@ -28,9 +28,9 @@ public class Lab4P1_DenisZepeda {
         while (opc<1 || opc>4){ 
             System.out.println("Error... Ingreso una opcion fuera de Rango");
             System.out.println("-----MENU-----");
-            System.out.println("1) ");
-            System.out.println("2) ");
-            System.out.println("3) ");
+            System.out.println("1) Analizador de contrasenas");
+            System.out.println("2) Cascada y simetria");
+            System.out.println("3) Cifrado Cesar");
             System.out.println("4) Salir");
             System.out.println("Ingrese una Opcion dentro del rango[1-4]");
             opc = entry.nextInt();
@@ -38,7 +38,31 @@ public class Lab4P1_DenisZepeda {
                 switch (opc) {
                 case 1:
                     System.out.println("Analizador de constrasenas");
-                    break;
+                    char volver = 's';
+                    int maxcar = 0;
+                    String mayus = "";
+                    int num = 0;
+                    int caracter = 0;
+                    while (volver=='s') {                        
+                    boolean analizador = false;
+                    while (analizador==false) {   
+                        System.out.println("Ingrese su contrasena");
+                        String contra = "";
+                        contra = entry.next();
+                        
+                        if (contra.isEmpty()) {
+                            System.out.print("Error...La entrada no puede estar vacia");
+                            continue;                            
+                        }
+      
+                        
+                        }//while
+                        System.out.println("Desea volver a ejecutar el codigo? (s/n)");
+                        volver = entry.next().charAt(0);
+                    }return;
+                    
+
+                    
                 case 2:
                     System.out.println("Cascada y Simetria");
                     boolean cascadasysimetrias = false;
@@ -47,9 +71,27 @@ public class Lab4P1_DenisZepeda {
                         String word = "";
                         word = entry.next();
                         
+                        String acum="";
+                        int acumh = 1;
+                        
                         if (word.isEmpty()) {
-                            System.out.println("Error la entrada no puede ser vacia");
+                            System.out.print("Error la entrada no puede ser vacia");
+                            continue;
                         }
+                        
+                        for (int i = 0; i < word.length(); i++) {
+                            acum+=word.charAt(i);
+                            System.out.print(acum);
+                            System.out.println("");
+                        }
+                        
+                        for (int i = word.length()-1; i >0; i--) {
+                            for (int j = 0; j < i; j++) {
+                                System.out.print(word.charAt(j));
+                            }
+                            System.out.println("");
+                        }
+                        cascadasysimetrias = true;
                     }
                     break;
                 case 3:
@@ -93,7 +135,8 @@ public class Lab4P1_DenisZepeda {
                     System.out.println("Gracias por ejecutar el programa!");
                     break;
                 
-            }    
+            }
+            
     }
     
 }
