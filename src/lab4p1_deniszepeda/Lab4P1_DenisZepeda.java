@@ -38,27 +38,69 @@ public class Lab4P1_DenisZepeda {
                 switch (opc) {
                 case 1:
                     System.out.println("Analizador de constrasenas");
-                    char volver = 's';
                     int maxcar = 0;
                     String mayus = "";
                     int num = 0;
                     int caracter = 0;
-                    while (volver=='s') {                        
+                                            
                     boolean analizador = false;
                     while (analizador==false) {   
-                        System.out.println("Ingrese su contrasena");
-                        String contra = "";
-                        contra = entry.next();
-                        
-                        if (contra.isEmpty()) {
-                            System.out.print("Error...La entrada no puede estar vacia");
-                            continue;                            
+                        char resp = 's';
+                        while (resp=='s'){
+                          entry.nextLine();
+                          System.out.println("Ingrese su contrasena");
+                          String contra=entry.nextLine();
+
+                        while (contra.length()==0){
+                           
+                            System.out.println("Error...La entrada no puede estar vacia");
+                            contra=entry.nextLine();
+                            
                         }
-      
+                        int cantidad=0;
+                        int contmayus=0;
+                        int carespecial=0;
+                        int cantnum=0;
+                        if (contra.length()>8){
+                            cantidad=1;
+                            
+                        }
                         
+                        for (int i = 0 ;i<contra.length();i++){
+                            char requisitos = contra.charAt(i);
+                            if(requisitos>='A'&& requisitos<='Z'){
+                                contmayus=1;
+                            }
+                             if(requisitos>='0'&&requisitos<='9'){
+                                cantnum=1;
+                            }
+                            if(requisitos =='!'||requisitos =='@'|| requisitos =='#'||requisitos =='$' || requisitos =='%' || requisitos =='^' || requisitos =='&' || requisitos =='*'){        
+                                carespecial=1;
+                            } 
+                        }
+                        if (num==1&&contmayus==1&&cantidad==1&&carespecial==1){
+                            System.out.println("contrasena segura");
+                        }else {
+                            
+                        System.out.println("Contrasena insegura, fallo en  :");
+                        if (cantidad==0){
+                            System.out.println("-Minimo 8 caracteres");
+                        }if (contmayus==0){
+                            System.out.println("-Falta una mayuscula");
+                        }if (cantnum==0){
+                            System.out.println("-Falta un numero");
+                        }if (carespecial==0){
+                            System.out.println("-Falta un caracterer especial");
+                            }
+                        }
+                            
+                        System.out.println("Desea analizar otra contraseña? (S/N) :");
+                        resp = entry.next().charAt(0);
+                    
+                    break;
+       
                         }//while
-                        System.out.println("Desea volver a ejecutar el codigo? (s/n)");
-                        volver = entry.next().charAt(0);
+                        
                     }return;
                     
 
@@ -110,6 +152,7 @@ public class Lab4P1_DenisZepeda {
                         
                         System.out.print("Ingrese un numero para el desplazamiento: ");
                         int desplaza = entry.nextInt();
+                      
                         
                         if (desplaza>=0) {     
                         String palabraCifrada = "";
@@ -120,7 +163,7 @@ public class Lab4P1_DenisZepeda {
 
                             palabraCifrada += caracterCifrado;
                         } //for
-                        
+                           
                             
                         System.out.println("Palabra ingresada: "+palabra);
                         System.out.println("Cifrado: " +palabraCifrada);
